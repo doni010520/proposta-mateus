@@ -167,7 +167,8 @@ def gerar_pdf(
     investimento_data = [
         ['KIT FOTOVOLTAICO', f'R$ {input_data.valor_modulos:,.2f}'],
         ['MÃO DE OBRA, PROJETO E PERIFÉRICOS', f'R$ {input_data.valor_mao_obra:,.2f}'],
-        ['INVESTIMENTO TOTAL', f'R$ {calculos.investimento_total:,.2f}']
+        investimento_data = [
+        ['KIT FOTOVOLTAICO', f'R$ {input_data.valor_kit:,.2f}'],
     ]
     
     investimento_table = Table(investimento_data, colWidths=[120*mm, 50*mm])
