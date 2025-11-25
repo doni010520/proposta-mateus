@@ -12,7 +12,6 @@ from pathlib import Path
 
 from app.models import ProposalInput, ProposalOutput, Calculos
 from app.calculos import (
-    calcular_quantidade_placas,
     calcular_potencia_instalada,
     calcular_geracao_mensal,
     calcular_geracao_anual,
@@ -69,11 +68,11 @@ async def generate_proposal(data: ProposalInput):
     """
     try:
         # 1. Cálculos
-        quantidade_placas = calcular_quantidade_placas(data.consumo)
+        quantidade_placas = data.quantidade_placas
         potencia_instalada = calcular_potencia_instalada(quantidade_placas)
         geracao_mensal = calcular_geracao_mensal(quantidade_placas)
         geracao_anual = calcular_geracao_anual(geracao_mensal)
-        investimento_total = data.valor_modulos + data.valor_mao_obra
+        investimento_total = data.valor_kit + data.valor_mao_obra
         
         payback_list, ano_retorno, economia_25_anos = calcular_payback(
             geracao_anual, investimento_total
