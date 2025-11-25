@@ -32,11 +32,6 @@ PERDA_EFICIENCIA_ANUAL = 0.007  # 0.7%
 POTENCIA_POR_PLACA = 0.62  # kW
 
 
-def calcular_quantidade_placas(consumo: float) -> int:
-    """Calcula quantidade de placas baseado no consumo"""
-    return int(consumo / 70)
-
-
 def calcular_potencia_instalada(quantidade_placas: int) -> float:
     """Calcula potência instalada em kWp"""
     return round(quantidade_placas * POTENCIA_POR_PLACA, 2)
