@@ -5,7 +5,8 @@ from typing import List, Optional
 class ProposalInput(BaseModel):
     cliente: str = Field(..., description="Nome do cliente")
     consumo: float = Field(..., description="Consumo mensal em kWh", gt=0)
-    valor_modulos: float = Field(..., description="Valor dos módulos em R$", gt=0)
+    quantidade_placas: int = Field(..., description="Quantidade de placas", gt=0)
+    valor_kit: float = Field(..., description="Valor do kit fotovoltaico em R$", gt=0)
     valor_mao_obra: float = Field(..., description="Valor da mão de obra em R$", gt=0)
     tipo_inversor: str = Field(..., description="Descrição do inversor")
 
